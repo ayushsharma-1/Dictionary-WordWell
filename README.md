@@ -14,19 +14,30 @@
 1. **Search word and get not only the  meaning of the word but also learn about its phonetic.**
 
 
-![Screenshot (1318)]()
+![Screenshot (1318)](https://github.com/ayushsharma-1/Dictionary-WordWell/blob/main/assets/first.jpeg)
 
 - - - -
 2. **Bookmark diificult words.**
 
 
-![Screenshot (1319)]()
+![Screenshot (1319)](https://github.com/ayushsharma-1/Dictionary-WordWell/blob/main/assets/Screenshot%202024-01-23%20145250.png)
 
 - - - -
-3. **Hover over recent searches to get a quick definiton of the word.**
+3.. **Recent searches to get a quick definiton of the word.**
+
+![Screenshot (1320)](https://github.com/ayushsharma-1/Dictionary-WordWell/blob/main/assets/Screenshot%202024-01-23%20145117.png)
+
+- - - -
+4.. **Hover over recent searches to get a quick definiton of the word.**
 
 
-![Screenshot (1320)]()
+![Screenshot (1321)](https://github.com/ayushsharma-1/Dictionary-WordWell/blob/main/assets/Screenshot%202024-01-23%20145131.png)
+
+- - - -
+5.. **Searches to get a quick definiton of the word.**
+
+
+![Screenshot (1322)](https://github.com/ayushsharma-1/Dictionary-WordWell/blob/main/assets/Screenshot%202024-01-23%20145239.png)
 
 - - - -
 ## Hope you like it !!
