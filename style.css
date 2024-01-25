@@ -83,7 +83,7 @@ font-weight: bold;
 #show_result{
     background-color: gold;
     display: none;
-    margin-left: 35rem;
+    /* margin-left: 35rem; */
     
 }
 #recent_search_title{
@@ -339,5 +339,8 @@ justify-content: space-around;
   #search_word{
     width: 30em;
     margin-left: 33rem;
+}
+#show_result{
+  margin-left: 35rem;
 }
 }
