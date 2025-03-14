@@ -1,4 +1,157 @@
 
+// let loading_animation = document.getElementById('loading_animation');
+
+// $(window).on('load', function () {
+//     $('#loading_animation').hide();
+// })
+// displayQuote()
+// displayRecentWord();
+// displaybookmarkedWord();
+// /**********FETCH API************/
+
+// // API for QUOTE
+// let quote = document.getElementById('quote');
+// let author = document.getElementById('author');
+// // console.log('api fetching')
+// async function displayQuote() {
+//     console.log('inside')
+//   try {
+//     let quoteNum = Math.floor(Math.floor(Math.random() * 17));
+//     console.log(quoteNum)
+//     console.log('api fetch')
+//     const response = await fetch("https://type.fit/api/quotes");
+//     console.log(response)
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       // Update DOM elements
+//       quote.innerHTML = `"${data[quoteNum].text}"`;
+//       author.innerHTML = `~${data[quoteNum].author}`;
+//       console.log('updated')
+//     } else {
+//       throw new Error(`Failed to fetch quotes. Status: ${response.status}`);
+//     }
+//   } catch (error) {
+//     // Log the error
+//     console.log('inside error')
+//     console.error("Error:", error);
+
+//     // Fallback to another API or provide a default quote
+//     fetch("https://api.quotable.io/random") // Use HTTPS
+//       .then(res => res.json())
+//       .then(data => {
+//         quote.innerHTML = `"${data.content}"`;
+//         author.innerHTML = `~${data.author}`;
+//       })
+//       .catch(fallbackError => {
+//         console.error("Fallback Error:", fallbackError);
+//         // Provide a default quote or handle it as needed
+//       });
+//   }
+// }
+
+
+// /**RESIZING INPUT TEXTAREA */
+
+// /********** *****/
+// let search_word = document.getElementById('search_word');
+// let card_title = document.getElementById('card_title');
+// let word_meaning = document.getElementById('word_meaning');
+// let word_example = document.getElementById('word_example');
+// let word_pronounciation = document.getElementById('word_pronounciation');
+// let word_audio_source = document.getElementById('word_audio_source');
+// let word_audio = document.getElementById('word_audio');
+// let audio_btn = document.getElementById('audio_btn');
+// let search_btn = document.getElementById('search_btn');
+// let bookmark_btn = document.getElementById('bookmark_btn');
+// let offcanvasRight = document.getElementById('offcanvasRight');
+// let word_history_section = document.getElementById('word_history_section');
+
+// let word_result_div = document.getElementById('word_result_div');
+
+// search_btn.addEventListener('click', async function () {
+//     bookmark_icon.getElementsByTagName("i")[0].className = "bi bi-bookmark";
+//     let show_result = document.getElementById('show_result');
+//     show_result.style.display = "none";
+//     if (search_word.value == "") {
+//         show_result.style.display = "none";
+//         var toastLiveExample = document.getElementById('liveToast')
+//         var toast = new bootstrap.Toast(toastLiveExample);
+//         toast.show()
+//     }
+//     else {
+//         fetchWord();
+//         word_history_section.style.display = "none";
+//         loading_animation.style.display = "block";
+
+//         setTimeout(function () {
+//             loading_animation.style.display = "none";
+//             word_history_section.style.display = "block";
+//         }, 990)
+//         setTimeout(function () {
+//             show_result.style.display = "block";
+
+//         }, 1000)
+
+
+//     }/***local storage for recently searched  words  */
+//     let recently_searched = localStorage.getItem("recently_searched");
+//     if (recently_searched == null) {
+//         recentWord = [];
+//     } else {
+//         recentWord = JSON.parse(recently_searched);
+
+//     }
+//     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search_word.value}`)
+//     const data = await response.json();
+
+//     let recentObj = {
+//         title: `${data[0].word}`,
+//         meaning: `${data[0].meanings[0].definitions[0].definition}`,
+//     }
+
+//     if (search_word.value != "") {
+//         recentWord.push(recentObj);
+//         localStorage.setItem("recently_searched", JSON.stringify(recentWord));
+//         displayRecentWord();
+//     }
+
+// })
+// reset_btn.addEventListener('click', function () {
+//     search_word.value = "";
+//     show_result.style.display = "none";
+// })
+// // API for WORD
+// async function fetchWord() {
+//     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search_word.value}`)
+//     const data = await response.json();
+//     if (response.ok) {
+//         audio_btn.style.display = "block";
+//         bookmark_icon.style.display = "block";
+
+//         card_title.innerHTML = `${data[0].word}`
+//         word_meaning.innerHTML = `<br>  <b><i>Meaning: </i></b>  ${data[0].meanings[0].definitions[0].definition} `
+//         word_example.innerHTML = `<b><i>Example: </i></b>   ${data[0].meanings[0].definitions[0].example} `
+//         // word_audio_source.src = `${data[0].phonetics[0].audio}`
+//         word_pronounciation.innerHTML = `<b><i>Pronounciation:</i></b>  ${data[0].phonetics[0].text}  `
+//     }
+//     else {
+//         card_title.innerHTML = `${data.title}`
+//         word_meaning.innerHTML = `${data.message}`
+//         word_example.innerHTML = `${data.resolution}`
+//         word_pronounciation.innerHTML = "";
+//         audio_btn.style.display = "none";
+//         bookmark_icon.style.display = "none";
+
+//     }
+// }
+// //word_audio
+// audio_btn.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     word_audio.play().catch(err => console.error("Audio playback failed:", err));
+// });
+
+
 let loading_animation = document.getElementById('loading_animation');
 
 $(window).on('load', function () {
@@ -131,9 +284,20 @@ async function fetchWord() {
 
         card_title.innerHTML = `${data[0].word}`
         word_meaning.innerHTML = `<br>  <b><i>Meaning: </i></b>  ${data[0].meanings[0].definitions[0].definition} `
-        word_example.innerHTML = `<b><i>Example: </i></b>   ${data[0].meanings[0].definitions[0].example} `
-        word_audio_source.src = `${data[0].phonetics[0].audio}`
-        word_pronounciation.innerHTML = `<b><i>Pronounciation:</i></b>  ${data[0].phonetics[0].text}  `
+        word_example.innerHTML = `<b><i>Example: </i></b>   ${data[0].meanings[0].definitions[0].example || "No example available"} `
+        
+        if (data[0].phonetics.length > 0 && data[0].phonetics[0].audio) {
+            word_audio_source.src = data[0].phonetics[0].audio;
+            word_audio.load();
+            audio_btn.style.display = "block";
+        } else {
+            console.warn("Audio not available for this word.");
+            word_audio_source.src = "fallback-audio.mp3";  // Optional fallback
+            word_audio.load();
+            audio_btn.style.display = "block";
+        }
+
+        word_pronounciation.innerHTML = `<b><i>Pronounciation:</i></b>  ${data[0].phonetics[0]?.text || "N/A"}  `
 
     }
     else {
@@ -146,22 +310,13 @@ async function fetchWord() {
 
     }
 }
+
 //word_audio
 audio_btn.addEventListener('click', function (e) {
     e.preventDefault();
-    audio_btn.getElementsByTagName("i")[0].className = "bi bi-volume-down-fill";
-    word_audio.load(); //call this to just preload the audio without playing
-    word_audio.play();
-    word_audio.addEventListener('ended', function () {
+    word_audio.play().catch(err => console.error("Audio playback failed:", err));
+});
 
-        audio_btn.getElementsByTagName("i")[0].className = "bi bi-volume-down";
-        console.log(audio_btn.getElementsByTagName("i")[0].className)
-
-
-    })
-
-
-})
 //Recently searched
 function displayRecentWord() {
     // console.log('displayRecentWord() called ');
